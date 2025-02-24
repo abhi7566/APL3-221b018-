@@ -1,0 +1,172 @@
+Delivered-To: 221b015@juetguna.in
+Received: by 2002:a05:6a10:2a8c:b0:5e1:1c4f:6527 with SMTP id ja12csp1664169pxb;
+        Mon, 24 Feb 2025 00:46:40 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCW0OfQxsdciOoY/MDAMEkFgB0PUZQTJoLFMENfiJ2eoq3kv5kgv6rAhGYM+0h3Hgo9ZJVd3rsJl@juetguna.in
+X-Received: by 2002:a05:620a:29c2:b0:7c0:ac01:ae7c with SMTP id af79cd13be357-7c0cef0ad53mr1957427985a.25.1740386800521;
+        Mon, 24 Feb 2025 00:46:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1740386800; cv=none;
+        d=google.com; s=arc-20240605;
+        b=OZDcS97Lcd2aXY90YYo87kmuu8kdsGQrUro2a7Z488TShzuc2wqId37eFpiHtVFPxV
+         8fi9ITQUNtxKBYuT6KwyDCezpg3ZwN0TTzpZL9DG2sQ2YbZf8/Q4wA+NFMh8IEayjE26
+         3MebDmcwW2AqkDzNNI0ogHvAqH96b9uIWz5oZdmhllj+Fex0w7UNx6eR65MKge4d8dN+
+         x07F92pjCC43SxNAjj4fV00n5ZBoO2pVsR27Bh2cHe/kiazo943vlv01HhyU2EK7SHfz
+         Fi74mbRzisXDYE30clYZ62OgwCOOYXdQGdP3Rjywor1S/k+frv3AWwc/REJm55T5HjaV
+         xBLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=7WiYaCJfb2fgzt5M411MRveOYxrHUtdwE/N2l0Sn44g=;
+        fh=QkgU8beVVwczg6npOOD7uhA+BtidsTLJ4wMLcw+wDJo=;
+        b=li8bnqRwZnPaKsM1X8PT/QfQdfImaSGHEDasma8G9d6EGJlNm19xlmRs69SL4YF51k
+         z68AMjvFGj0IgGJdEiyiDIPEloyNzqEArNPr4xQnLnppF+ySMmrykEUsbofkKi1lTtdB
+         JpC/8IpEu1aL0LNrk40Na3FmwWoyywcpDblvtcB6PSNxF6ylKDs2QzUv8J0oLFpBpJ+L
+         4KDjQpfBStkY2MBkOiw7FSuajvZc3N6bz7OVYml3klEG/1qlSY2cThqjeO+KCP5W/9FB
+         ux/BteqIf8eF7bYVugLeITj3CqVkqrSRjMJj1oyxLOCLqJHCDELR38wrgPsg+qcXyGVC
+         09Dg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@juetguna-in.20230601.gappssmtp.com header.s=20230601 header.b=djkvF1R4;
+       spf=none (google.com: 221b021@juetguna.in does not designate permitted sender hosts) smtp.mailfrom=221b021@juetguna.in;
+       dara=pass header.i=@juetguna.in
+Return-Path: <221b021@juetguna.in>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id af79cd13be357-7c0a22fc0aasor2331979285a.3.2025.02.24.00.46.40
+        for <221b015@juetguna.in>
+        (Google Transport Security);
+        Mon, 24 Feb 2025 00:46:40 -0800 (PST)
+Received-SPF: none (google.com: 221b021@juetguna.in does not designate permitted sender hosts) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@juetguna-in.20230601.gappssmtp.com header.s=20230601 header.b=djkvF1R4;
+       spf=none (google.com: 221b021@juetguna.in does not designate permitted sender hosts) smtp.mailfrom=221b021@juetguna.in;
+       dara=pass header.i=@juetguna.in
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=juetguna-in.20230601.gappssmtp.com; s=20230601; t=1740386800; x=1740991600; darn=juetguna.in;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7WiYaCJfb2fgzt5M411MRveOYxrHUtdwE/N2l0Sn44g=;
+        b=djkvF1R4qa4G3OaF4YvjuyJNtUfv8ZWAHpFW/oTcmzANx5OsW/dmRCoowT41eiyXy0
+         2896aRomJLNQ8GbrPKNg8PnPXvsyO9i6d0YehnlLJ4MKSV6YeabTRH8lpmj/45qzY5Te
+         q4Stq3XfwEXF94J9gMdQDTsOTxUlzFLcMkHnDa0KvrcNaYi4bBL4qQTFgjvh5Lz8tBHU
+         IbeW/AlhK/kmM6Stfjg0pGiT3cwUs+w/rdIpOfI6pGIBP929h+/Q/LOk/uQSA1yf6YNt
+         n9jrYU/nZcWiumHZBcLfHjC7hPgAqKbmugRB9iH02czPIuQsU7L7x6wxSJnGEvj81CDo
+         TfGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740386800; x=1740991600;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7WiYaCJfb2fgzt5M411MRveOYxrHUtdwE/N2l0Sn44g=;
+        b=PhUbveKbEwdf0Ne7WJaZye5JKl/EpIAzqgEEYUWGwy1p3Ym/lmwtGz9nl/Z1VU1DFB
+         A673EFNkrIJF8R71yURhkZBYmexaRuYgkBd6d4m+V6Ar1oXHjC1XxnBkQnh/VfOOCUuP
+         NM6viXfjurVg7Iwxt2cCyQj/uqKV0zmGnpiaVU5VtuxosLRt3wz2i1DWJWcaPFxN2Oil
+         dO26w0h6WN9z2GA9/Li0PpnrE99QwvPctUDmWQmVJvh2AaRhYHWdG+0huI+rqSmsb0by
+         bgOAJFra1g3iioCuWcYckMl8VZdWxFq2ZxthNjqy+XC82l3nVUER5DTbqbeqnryts2If
+         aiIA==
+X-Forwarded-Encrypted: i=1; AJvYcCV8cfa6O87Oyu8JoNmSNWVXX/XsdRDa2JJ8Q56XPyRHN2cYtJZaKIIuPUj8h/fvExQjacIL5Bs8@juetguna.in
+X-Gm-Message-State: AOJu0YwN9bEhWfzIhTZHon96AHeoUYQpX2dG2lacXGazzAg5fWBeYcOn
+	BPk7Ty0b0HnaR/+0vBoJBFSkirU07UaZdVyHpBK+rFySAIuZdEtwI/Rw7Yr7LPuzNwjQf0WF2Jv
+	uB2bN3sTIoIerD3DqD+yRkMcDMFLQr3SB6YyMn+RQ
+X-Gm-Gg: ASbGncvjoadC9WCuIfZMyb14gvT8ldvbOjl63ezutn55JhltFYxI2FNcASWtGQXtVU5
+	Txxm+R7lDq2sszLFujrkJnEjPo4boqw3Fh1Vl/i+k3qL1Kn55ZU/XrD6bhlsnmVMJVRrYsxa5e4
+	a8kuRTlLAI
+X-Google-Smtp-Source: AGHT+IFnY8aoKIXAqZMEbTEN7BMaYKy0/FwGOtmCGAfi2kG8wLO3PqGuTO1uCfdFvNnmhV4cMXaveCyD9s8l72Fnx8A=
+X-Received: by 2002:a05:620a:4552:b0:7c0:c0b7:32fa with SMTP id
+ af79cd13be357-7c0cef55ff4mr2255990985a.36.1740386799935; Mon, 24 Feb 2025
+ 00:46:39 -0800 (PST)
+MIME-Version: 1.0
+References: <CALt=k99n0zGQtSYtEfRkSA4jbt-okSTwuT2e=036UpXFM+pmEA@mail.gmail.com>
+In-Reply-To: <CALt=k99n0zGQtSYtEfRkSA4jbt-okSTwuT2e=036UpXFM+pmEA@mail.gmail.com>
+From: ABHISHEK YADAV <221b021@juetguna.in>
+Date: Mon, 24 Feb 2025 14:17:43 +0530
+X-Gm-Features: AWEUYZmcXbG3QT419SgZfh5we0jR5zfEfbvEYWK-JOSbBqWrzZ_gF0mFkM2j5us
+Message-ID: <CACS7Gsc_uoyapoJTogc5tPYh8rr+h4RF69P-ykOitSBXx5RmJA@mail.gmail.com>
+Subject: Fwd:
+To: ABHISHEK RAJ <221b019@juetguna.in>, ABHISHEK KUMAR <221b015@juetguna.in>
+Content-Type: multipart/mixed; boundary="000000000000fc53e6062edf60d7"
+
+--000000000000fc53e6062edf60d7
+Content-Type: multipart/alternative; boundary="000000000000fc53e4062edf60d5"
+
+--000000000000fc53e4062edf60d5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+From: ABHUDAY SUDHIR <221b023@juetguna.in>
+Date: Mon, Feb 24, 2025 at 2:15=E2=80=AFPM
+Subject:
+To: ABHISHEK YADAV <221b022@juetguna.in>, ABHISHEK YADAV <
+221b021@juetguna.in>
+
+--000000000000fc53e4062edf60d5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>From: <strong class=3D"gmail_sendername" dir=3D"auto">ABHUDAY SUDHIR</s=
+trong> <span dir=3D"auto">&lt;<a href=3D"mailto:221b023@juetguna.in">221b02=
+3@juetguna.in</a>&gt;</span><br>Date: Mon, Feb 24, 2025 at 2:15=E2=80=AFPM<=
+br>Subject: <br>To: ABHISHEK YADAV &lt;<a href=3D"mailto:221b022@juetguna.i=
+n">221b022@juetguna.in</a>&gt;, ABHISHEK YADAV &lt;<a href=3D"mailto:221b02=
+1@juetguna.in">221b021@juetguna.in</a>&gt;<br></div><br><br><div dir=3D"ltr=
+"><div dir=3D"ltr"><br></div></div>
+</div></div>
+
+--000000000000fc53e4062edf60d5--
+--000000000000fc53e6062edf60d7
+Content-Type: application/octet-stream; name="Singleton.class"
+Content-Disposition: attachment; filename="Singleton.class"
+Content-Transfer-Encoding: base64
+Content-ID: <f_m7itcj1u2>
+X-Attachment-Id: f_m7itcj1u2
+
+yv66vgAAAEEAGgoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClW
+CQAIAAkHAAoMAAsADAEACVNpbmdsZXRvbgEAAXgBAAFJCQAIAA4MAA8AEAEADnVuaXF1ZUluc3Rh
+bmNlAQALTFNpbmdsZXRvbjsKAAgAAwEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBAAtnZXRJbnN0
+YW5jZQEADSgpTFNpbmdsZXRvbjsBAA1TdGFja01hcFRhYmxlAQAIPGNsaW5pdD4BAApTb3VyY2VG
+aWxlAQAOU2luZ2xldG9uLmphdmEAIQAIAAIAAAACAAkACwAMAAAACgAPABAAAAADAAEABQAGAAEA
+EgAAAC8AAgABAAAADyq3AAEqV7IABwRgswAHsQAAAAEAEwAAAA4AAwAAAAQABAAFAA4ABgAJABQA
+FQABABIAAAA9AAIAAAAAABSyAA3HAA27AAhZtwARswANsgANsAAAAAIAEwAAAA4AAwAAAAgABgAJ
+ABAACwAWAAAAAwABEAAIABcABgABABIAAAAdAAEAAAAAAAUDswAHsQAAAAEAEwAAAAYAAQAAAAIA
+AQAYAAAAAgAZ
+--000000000000fc53e6062edf60d7
+Content-Type: application/octet-stream; name="Main.class"
+Content-Disposition: attachment; filename="Main.class"
+Content-Transfer-Encoding: base64
+Content-ID: <f_m7itcj1g0>
+X-Attachment-Id: f_m7itcj1g0
+
+yv66vgAAAEEAJQoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClW
+CgAIAAkHAAoMAAsADAEACVNpbmdsZXRvbgEAC2dldEluc3RhbmNlAQANKClMU2luZ2xldG9uOwkA
+DgAPBwAQDAARABIBABBqYXZhL2xhbmcvU3lzdGVtAQADb3V0AQAVTGphdmEvaW8vUHJpbnRTdHJl
+YW07CQAIABQMABUAFgEAAXgBAAFJCgAYABkHABoMABsAHAEAE2phdmEvaW8vUHJpbnRTdHJlYW0B
+AAdwcmludGxuAQAEKEkpVgcAHgEABE1haW4BAARDb2RlAQAPTGluZU51bWJlclRhYmxlAQAEbWFp
+bgEAFihbTGphdmEvbGFuZy9TdHJpbmc7KVYBAApTb3VyY2VGaWxlAQAJTWFpbi5qYXZhACEAHQAC
+AAAAAAACAAEABQAGAAEAHwAAAB0AAQABAAAABSq3AAGxAAAAAQAgAAAABgABAAAAAQAJACEAIgAB
+AB8AAABDAAIAAwAAABu4AAdMsgANsgATtgAXuAAHTbIADbIAE7YAF7EAAAABACAAAAAWAAUAAAAD
+AAQABAANAAUAEQAGABoABwABACMAAAACACQ=
+--000000000000fc53e6062edf60d7
+Content-Type: application/ms-java; name="Main.java"
+Content-Disposition: attachment; filename="Main.java"
+Content-Transfer-Encoding: base64
+Content-ID: <f_m7itcj1r1>
+X-Attachment-Id: f_m7itcj1r1
+
+cHVibGljIGNsYXNzIE1haW57DQpwdWJsaWMgc3RhdGljIHZvaWQgbWFpbihTdHJpbmcgW10gYXJn
+cyl7DQpTaW5nbGV0b24gczE9U2luZ2xldG9uLmdldEluc3RhbmNlKCk7DQpTeXN0ZW0ub3V0LnBy
+aW50bG4oU2luZ2xldG9uLngpOw0KU2luZ2xldG9uIHMyPVNpbmdsZXRvbi5nZXRJbnN0YW5jZSgp
+Ow0KU3lzdGVtLm91dC5wcmludGxuKFNpbmdsZXRvbi54KTsNClNpbmdsZXRvbiBzMz1uZXcgU2lu
+Z2xldG9uKCk7DQoNClN5c3RlbS5vdXQucHJpbnRsbihTaW5nbGV0b24ueCk7DQoNCn0NCn0=
+--000000000000fc53e6062edf60d7
+Content-Type: application/ms-java; name="Singleton.java"
+Content-Disposition: attachment; filename="Singleton.java"
+Content-Transfer-Encoding: base64
+Content-ID: <f_m7itcj1w3>
+X-Attachment-Id: f_m7itcj1w3
+
+cHVibGljIGNsYXNzIFNpbmdsZXRvbnsNCnB1YmxpYyBzdGF0aWMgaW50IHg9MDsNCglwcml2YXRl
+IHN0YXRpYyBTaW5nbGV0b24gdW5pcXVlSW5zdGFuY2U7DQoJcHVibGljIFNpbmdsZXRvbigpew0K
+dGhpcy54Kys7DQp9Ow0KCQlwdWJsaWMgc3RhdGljIFNpbmdsZXRvbiBnZXRJbnN0YW5jZSgpew0K
+CQkJaWYodW5pcXVlSW5zdGFuY2U9PW51bGwpew0KCQkJCXVuaXF1ZUluc3RhbmNlPW5ldyBTaW5n
+bGV0b24oKTsNCgkJCX0NCgkJCXJldHVybiB1bmlxdWVJbnN0YW5jZTsNCgkJfQ0KfQ0K
+--000000000000fc53e6062edf60d7--
